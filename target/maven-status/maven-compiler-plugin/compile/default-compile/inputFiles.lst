@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 /Users/MariaLemes/INSA/IF/S2/DASI/Projet/UI-Predictif/src/main/java/action/Action.java
 /Users/MariaLemes/INSA/IF/S2/DASI/Projet/UI-Predictif/src/main/java/vue/AuthentifierClientSerialisation.java
 /Users/MariaLemes/INSA/IF/S2/DASI/Projet/UI-Predictif/src/main/java/action/AuthentifierClientAction.java
 /Users/MariaLemes/INSA/IF/S2/DASI/Projet/UI-Predictif/src/main/java/controleur/ActionServlet.java
 /Users/MariaLemes/INSA/IF/S2/DASI/Projet/UI-Predictif/src/main/java/vue/Serialisation.java
+=======
+C:\Users\Matt\Documents\NetBeansProjects\UI-Predictif\src\main\java\Actions\Action.java
+C:\Users\Matt\Documents\NetBeansProjects\UI-Predictif\src\main\java\Actions\AuthentifierClientAction.java
+C:\Users\Matt\Documents\NetBeansProjects\UI-Predictif\src\main\java\Controleur\ActionServlet.java
+>>>>>>> 713a1324c3bc06023b6b5ebe80219416da327345

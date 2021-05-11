@@ -1,4 +1,4 @@
-package controleur;
+package Controleur;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,10 +6,6 @@ package controleur;
  * and open the template in the editor.
  */
 
-import action.Action;
-import action.AuthentifierClientAction;
-import vue.AuthentifierClientSerialisation;
-import vue.Serialisation;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -39,31 +35,27 @@ public class ActionServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     
-        
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
+        
+        PrintWriter out = response.getWriter();
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
           
         Service s = new Service();
        
         String todo = request.getParameter("todo");
         
-        System.out.println("**************** To do = "+todo);
-        
-        Action action = null;
-        Serialisation serialisation = null;
+        System.out.println(todo);
         
         switch(todo) {
             case "connecter" : {
-                action = new AuthentifierClientAction(s);
-                serialisation = new AuthentifierClientSerialisation();
+                
             }
         }
-        if(action != null && serialisation != null){
-            action.execute(request);
-            serialisation.serialiser(request,response);
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

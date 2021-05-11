@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 vue/AuthentifierClientSerialisation.class
 controleur/ActionServlet.class
 vue/Serialisation.class
 action/Action.class
 action/AuthentifierClientAction.class
+=======
+Controleur\ActionServlet.class
+Actions\Action.class
+>>>>>>> 713a1324c3bc06023b6b5ebe80219416da327345
