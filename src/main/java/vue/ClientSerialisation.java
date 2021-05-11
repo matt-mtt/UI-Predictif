@@ -13,12 +13,13 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import metier.modele.Client;
+import metier.modele.ProfilAstral;
 
 /**
  *
  * @author MariaLemes
  */
-public class AuthentifierClientSerialisation extends Serialisation {
+public class ClientSerialisation extends Serialisation {
 
     @Override
     public void serialiser(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -34,6 +35,16 @@ public class AuthentifierClientSerialisation extends Serialisation {
         client.addProperty("nom",c.getNom());
         client.addProperty("prenom",c.getPrenom());
         client.addProperty("mail",c.getMail());
+        
+        
+        ProfilAstral pa = c.getProfilAstral();
+        JsonObject pAstral = new JsonObject();
+        pAstral.addProperty("id", pa.getId());
+        pAstral.addProperty("signeZodiac",pa.getSigneZodiac());
+        pAstral.addProperty("signeChinois",pa.getSigneChinois());
+        pAstral.addProperty("animalTotem",pa.getCouleur());
+        
+        client.add("profilAstral",pAstral);
         resp.add("client",client);
         
         PrintWriter out = response.getWriter();
