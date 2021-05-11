@@ -7,10 +7,14 @@
     </head>
     <body>
         <div class="menu-accueil">
-            <button class="top-menu-btn" id="accueil-connexion-btn"><span class="top-menu-btn-text">Connexion</span></button>
-            <button class="top-menu-btn" id="accueil-inscription-btn"><span class="top-menu-btn-text">Inscription</span></button>
+            <div class="accueil-btns">
+                <button class="top-menu-btn" id="accueil-connexion-btn"><span class="top-menu-btn-text">Connexion</span></button>
+                <button class="top-menu-btn" id="accueil-inscription-btn"><span class="top-menu-btn-text">Inscription</span></button>
+            </div>
         </div>
-        <h1 class="page-titre">Predict'IF</h1>
+        <div class="accueil-titre">
+            <h1 class="page-titre">Predict'IF</h1>
+        </div>
         <div class="intro-panel">
             <p class="intro-text">
                 Vous voulez en savoir plus sur votre avenir? PREDICT’IF est le site pour vous! Reconnus internationalement, nos médiums travaillent avec précision, honnêteté et rigueur pour vous fournir les meilleurs services! Leurs prédictions personnalisées répondront à toutes vos questions sentimentales, professionnelles et psychologiques.
@@ -30,5 +34,12 @@
         </div>
         <p>Ce TP vous initie aux technologies web. Êtes-vous prêts ? </p>
         <a href="./login.html">Aller à la page de Connexion</a>
+        
+        <script>
+            $('#accueil-connexion-btn').on('click',function(){});
+            $('#accueil-inscription-btn').on('click',function(){});
+            
+            
+        </script>
     </body>
 </html>
