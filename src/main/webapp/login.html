@@ -22,7 +22,12 @@
         
         <!-- Lien vers l'accueil -->
         <p><a href="index.html">Retour à la page d'Accueil</a></p>
-
+        
+        <div id="info_client">
+        </div>
+     
+       
+        
         <script>
             $(document).ready( function () {
                 $('#bouton-connexion').on( 'click', function () { // Fonction appelée lors du clic sur le bouton
@@ -49,8 +54,7 @@
                         console.log('Response',response); // LOG dans Console Javascript
                         if (response.connexion) {
                             $('#notification').html("Connexion OK");  // Message pour le paragraphe de notification
-                            // TODO: afficher les informations du client dans la notification
-                            // Exemple: Connexion de Ada Lovelace (ID 1)
+                            $('#info_client').html("<p>Client :</br>Id : "+response.client.id+"<br>Nom : "+response.client.prenom+" "+response.client.nom+"<br>Mail : "+response.client.mail+"</p>");
                         }
                         else {
                             $('#notification').html("Erreur de Connexion"); // Message pour le paragraphe de notification

@@ -1,9 +1,10 @@
+package Controleur;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,7 +13,6 @@ import dao.JpaUtil;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +20,9 @@ import metier.modele.Client;
 import metier.service.Service;
 
 /**
- *  this is a test
- * @author Matt
+ *
+ * @author MariaLemes
  */
-@WebServlet(name = "ActionServlet", urlPatterns = {"/ActionServlet"})
 public class ActionServlet extends HttpServlet {
 
     /**
@@ -34,70 +33,30 @@ public class ActionServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * 
-     * http://localhost:8080/DASI/ActionServlet?todo=connecter&login=matthieu.moutot@insa-lyon.fr&password=toto
      */
-    
-    
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
         
+        PrintWriter out = response.getWriter();
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+          
+        Service s = new Service();
+       
         String todo = request.getParameter("todo");
-        System.out.println("todo : "+todo);
         
-        if ("connecter".equals(todo))
-        {
-            String login = request.getParameter("login");
-            String password = request.getParameter("password");
-            System.out.println("Login : "+login);
-            System.out.println("Password : "+password);
-            
-
-            Service s = new Service();
-            Client c = s.authentifierClient(login, password);
-            if (c != null)
-            {
+        System.out.println(todo);
+        
+        switch(todo) {
+            case "connecter" : {
                 
-                JsonObject resp = new JsonObject();//the whole thing 
-                resp.addProperty("connexion",true);
-                JsonObject client = new JsonObject();//the client thing
-                client.addProperty("id", c.getId());
-                client.addProperty("nom",c.getNom());
-                client.addProperty("renom",c.getPrenom());
-                client.addProperty("mail",c.getMail());
-                resp.add("client",client);
-                
-                PrintWriter out = response.getWriter();
-                Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
-                gson.toJson(resp, out);
-                out.close();
-                
-                System.out.println("Le client trouve : "+c.toString());
-            } else {
-                System.out.println("Aucun client trouve avec les identificants saisis");
             }
-            
-                    
+        }
 
-        } 
     }
-
-    
-  @Override
-  public void init() throws ServletException {
-    super.init();
-    JpaUtil.init();
-  }
-
-  @Override
-  public void destroy() {
-    JpaUtil.destroy();
-    super.destroy();
-  }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -108,6 +67,17 @@ public class ActionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+      @Override
+    public void init() throws ServletException {
+        super.init();
+        JpaUtil.init();
+    }
+
+    @Override
+    public void destroy() {
+     JpaUtil.destroy();
+     super.destroy();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
