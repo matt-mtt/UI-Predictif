@@ -4,6 +4,8 @@
         <title>Page d'Accueil</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="index.css" />
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
     </head>
     <body>
         <div class="menu-accueil">
@@ -39,10 +41,12 @@
         <a href="./login.html">Aller à la page de Connexion</a>
         
         <script>
-            $('#accueil-connexion-btn').on('click',function(){});
-            $('#accueil-inscription-btn').on('click',function(){});
-            
-            
+            $('#accueil-connexion-btn').on('click',function(){
+                window.location.href = 'login.html';
+            });
+            $('#accueil-inscription-btn').on('click',function(){
+                window.location.href = 'login.html';
+            });
         </script>
     </body>
 </html>
