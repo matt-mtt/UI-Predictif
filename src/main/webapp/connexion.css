@@ -1,0 +1,173 @@
+.background{
+    background:linear-gradient(to top left,rgb(153,85,201),rgb(186,203,234));
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    height: 100%;
+    width: 100%;
+}
+
+.central-panel {
+    width: 500px;
+    height: 400px;
+    background:rgb(104,52,154);
+    padding: 15px;
+    border: groove;
+    border-color:black;
+    position: relative;
+    top: 100px;
+    margin: auto;
+    z-index: 3;
+    
+}
+
+.titre {
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-size: 50px;
+    margin-top: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.formulaire{
+    position: relative;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-size: 25px;
+    text-align: left;
+    line-height: 70px;
+    padding-left:50px;
+    
+}
+
+input, textarea {    
+  font-size: 20px;
+  width: 48%;
+  background-color : rgb(246,195,244); 
+
+}
+
+input[type="text"], textarea {
+    width: 70%;
+}
+
+input[type="password"] {
+    width: 48%;
+    left: 32px;
+}
+
+
+.connexion-btn{
+    font-size: 18px;
+    padding: 8px 20px;
+    margin-left: 175px;
+    margin-top: 50px;
+
+}
+
+.accueil-btns {
+    background-color: black;
+    vertical-align: middle;
+    float: right;
+    opacity: 0.6;
+    font-size: 18px;
+    color:white;
+    padding: 10px 25px;
+}
+
+/*Logo Predictif
+
+.text-reflect, .text-reflect:before, .text-reflect span {
+  display: block;
+}
+
+.text-reflect, .text-reflect:before, .text-reflect:after {
+  position: relative;
+}
+
+.text-reflect {
+  top: 400px;
+  margin-left: 100px;
+}
+
+.text-reflect:before {
+  content: "PREDICT'IF";
+  top: 50px;
+  transform: scale(1, -1);
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.text-reflect:after {
+  content: '';
+  display: block;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+*/
+
+.text-up-left{
+    float: left;
+    margin-left: 50px;
+    margin-top: 250px;
+    position: fixed;
+    font-family: "Cormorant Upright", serif;
+        font-variant: small-caps;
+        text-align: center;
+        font-size: 48px;
+        letter-spacing: 3px;
+        color: rgb(130, 79, 167);
+        text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+
+}
+
+.text-down-left{
+    float: left;
+    margin-left: 50px;
+    margin-top: 300px;
+    position: fixed;
+    transform: scale(1, -1);
+    opacity: 0.5;
+    font-family: "Cormorant Upright", serif;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 3px;
+    color: rgb(130, 79, 167);
+    text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+    
+    
+}
+
+.text-up-right{
+    margin-right: 50px;
+    float: right;
+    margin-top: -186px;
+    position: relative;
+    font-family: "Cormorant Upright", serif;
+        font-variant: small-caps;
+        text-align: center;
+        font-size: 48px;
+        letter-spacing: 3px;
+        color: rgb(130, 79, 167);
+        text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+
+}
+
+.text-down-right{
+    margin-right: 50px;
+    float: right;
+    margin-top: -136px;
+    position: relative;
+    transform: scale(1, -1);
+    opacity: 0.5;
+    font-family: "Cormorant Upright", serif;
+    font-variant: small-caps;
+    text-align: center;
+    font-size: 48px;
+    letter-spacing: 3px;
+    color: rgb(130, 79, 167);
+    text-shadow: rgb(0, 0, 0) 1px 1px 0px;
+    
+}
