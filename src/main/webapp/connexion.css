@@ -1,30 +1,37 @@
-.background{
+body{
     background:linear-gradient(to top left,rgb(153,85,201),rgb(186,203,234));
-    position: absolute; 
-    top: 0;
-    left: 0; 
-    height: 100%;
-    width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .central-panel {
-    width: 500px;
-    height: 400px;
     background:rgb(104,52,154);
     padding: 15px;
     border: groove;
     border-color:black;
     position: relative;
-    top: 100px;
     margin: auto;
     z-index: 3;
     
 }
 
+#connexion-form{
+    width: 500px;
+    height: 400px;
+    top: 100px;
+}
+
+#inscription-form{
+    width: 500px;
+    height: 600px;
+    top: 50px;
+}
+
+
 .titre {
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     font-size: 50px;
-    margin-top: 50px;
+    margin-top: 40px;
     text-align: center;
     margin-bottom: 15px;
 }
@@ -34,24 +41,47 @@
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
     font-size: 25px;
     text-align: left;
-    line-height: 70px;
+    line-height: 60px;
     padding-left:50px;
     
 }
 
 input, textarea {    
   font-size: 20px;
-  width: 48%;
   background-color : rgb(246,195,244); 
 
 }
 
-input[type="text"], textarea {
+#champ-login{
     width: 70%;
 }
 
+#champ-nom{
+    width: 70%;
+}
+
+#champ-prenom{
+    width: 63%;
+}
+
+#champ-mail{
+    width: 72%;
+}
+
+#champ-adresse{
+    width: 60%;
+}
+
+#champ-datedenaissance{
+    width: 36%;
+}
+
+#champ-telephone{
+    width: 55%;
+}
+
 input[type="password"] {
-    width: 48%;
+    width: 49%;
     left: 32px;
 }
 
@@ -59,10 +89,20 @@ input[type="password"] {
 .connexion-btn{
     font-size: 18px;
     padding: 8px 20px;
-    margin-left: 175px;
-    margin-top: 50px;
+    
 
 }
+
+#bouton-connexion{
+    margin-left: 175px;
+    margin-top: 45px;
+}
+
+#bouton-inscription{
+    margin-left: 145px;
+    margin-top: 25px;
+}
+
 
 .accueil-btns {
     background-color: black;
@@ -74,38 +114,7 @@ input[type="password"] {
     padding: 10px 25px;
 }
 
-/*Logo Predictif
-
-.text-reflect, .text-reflect:before, .text-reflect span {
-  display: block;
-}
-
-.text-reflect, .text-reflect:before, .text-reflect:after {
-  position: relative;
-}
-
-.text-reflect {
-  top: 400px;
-  margin-left: 100px;
-}
-
-.text-reflect:before {
-  content: "PREDICT'IF";
-  top: 50px;
-  transform: scale(1, -1);
-  z-index: 1;
-  opacity: 0.5;
-}
-
-.text-reflect:after {
-  content: '';
-  display: block;
-  top: -10px;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-}
-*/
+/*Logo Predictif*/
 
 .text-up-left{
     float: left;
@@ -143,7 +152,6 @@ input[type="password"] {
 .text-up-right{
     margin-right: 50px;
     float: right;
-    margin-top: -186px;
     position: relative;
     font-family: "Cormorant Upright", serif;
         font-variant: small-caps;
@@ -158,7 +166,6 @@ input[type="password"] {
 .text-down-right{
     margin-right: 50px;
     float: right;
-    margin-top: -136px;
     position: relative;
     transform: scale(1, -1);
     opacity: 0.5;
@@ -171,3 +178,22 @@ input[type="password"] {
     text-shadow: rgb(0, 0, 0) 1px 1px 0px;
     
 }
+
+.text-up-right.connec{
+    margin-top: -186px;
+}
+
+.text-down-right.connec{
+    margin-top: -136px;
+}
+
+
+.text-up-right.insc{
+    margin-top: -386px;
+}
+
+.text-down-right.insc{
+    margin-top: -336px;
+}
+
+ 
