@@ -19,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import metier.modele.Client;
 import metier.service.Service;
 import vue.ClientSerialisation;
@@ -45,6 +46,8 @@ public class ActionServlet extends HttpServlet {
        
        
         Service s = new Service();
+        
+        HttpSession session = request.getSession(true);
        
         String todo = request.getParameter("todo");
         
@@ -57,7 +60,7 @@ public class ActionServlet extends HttpServlet {
             case "connecter" : {
                 System.out.println("****** to do = "+todo);
                 action = new AuthentifierClientAction(s);
-                serialisation = new ClientSerialisation();
+                serialisation = new ClientSerialisation();       
                 break;
             }
             case "inscrit" :{
@@ -71,6 +74,7 @@ public class ActionServlet extends HttpServlet {
         if(action !=null && serialisation !=null){
             action.execute(request);
             serialisation.serialiser(request, response);
+            System.out.println("****** session id = "+session.getAttribute("user"));
         }
 
     }
