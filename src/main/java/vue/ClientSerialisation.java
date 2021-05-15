@@ -28,7 +28,10 @@ public class ClientSerialisation extends Serialisation {
         //Lecture des attributs de la requete
         Client c = (Client)request.getAttribute("client");
         
+        if(c != null){
+        
         resp.addProperty("connexion",true);
+        resp.addProperty("inscrit", true);
         
         JsonObject client = new JsonObject();
         client.addProperty("id", c.getId());
@@ -46,7 +49,9 @@ public class ClientSerialisation extends Serialisation {
         
         client.add("profilAstral",pAstral);
         resp.add("client",client);
-        
+        }else{
+            resp.addProperty("connexion",false);
+        }
         PrintWriter out = response.getWriter();
         
         Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
