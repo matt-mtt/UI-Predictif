@@ -55,12 +55,16 @@ public class ActionServlet extends HttpServlet {
         
         switch(todo) {
             case "connecter" : {
+                System.out.println("****** to do = "+todo);
                 action = new AuthentifierClientAction(s);
                 serialisation = new ClientSerialisation();
+                break;
             }
             case "inscrit" :{
+                System.out.println("****** to do = "+todo);
                 action = new InscrireClientAction(s);
                 serialisation = new ClientSerialisation();
+                break;
             }       
         }
         
