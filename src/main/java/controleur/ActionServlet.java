@@ -8,6 +8,7 @@ package controleur;
 
 import action.Action;
 import action.AuthentifierClientAction;
+import action.InscrireClientAction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -47,7 +48,7 @@ public class ActionServlet extends HttpServlet {
        
         String todo = request.getParameter("todo");
         
-        System.out.println("****** to do ="+todo);
+        System.out.println("****** to do = "+todo);
         
         Action action = null;
         Serialisation serialisation = null;
@@ -57,6 +58,10 @@ public class ActionServlet extends HttpServlet {
                 action = new AuthentifierClientAction(s);
                 serialisation = new ClientSerialisation();
             }
+            case "inscrit" :{
+                action = new InscrireClientAction(s);
+                serialisation = new ClientSerialisation();
+            }       
         }
         
         if(action !=null && serialisation !=null){
