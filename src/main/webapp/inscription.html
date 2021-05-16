@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="connexion.css" />
+        <title class = "page-titre">Inscription</title>
+        <!-- Librairie Javascript: jQuery (v3.4.1) -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <link rel="stylesheet" href="index.css" />
+    </head>
+    
+    <body>
+
+        <div class="menu-accueil">
+                <button class="accueil-btns" id="accueil-connexion-btn">Retour Accueil</button>
+        </div>
+        
+        <p class="text-up-left">PREDICT'IF</p>
+        <p class="text-down-left" >PREDICT'IF</p>
+        
+        <div class="central-panel" id="inscription-form">
+        <h1 class="titre">Inscription</h1>
+        
+        <div class="formulaire">
+        
+        <!-- Champs et Bouton de Formulaire -->
+        Nom: <input type="text" id="champ-nom" size="40" />
+        <br/>
+        Prénom: <input type="text" id="champ-prenom" />
+        <br/>
+        Mail: <input type="text" id="champ-mail" />
+        <br/>
+        Adresse : <input type="text" id="champ-adresse" />
+        <br/>
+        Date de naissance: <input type="text" id="champ-datedenaissance" />
+        <br/>
+        Téléphone : <input type="text" id="champ-telephone" />
+        <br/>
+        Mot de passe: <input type="password" id="champ-mdp" />
+        <br/>
+        <button class="connexion-btn" id="bouton-inscription">Inscription</button>
+        </div>
+        
+        </div>
+        
+        <p class="text-up-right insc" >PREDICT'IF</p>
+        <p class="text-down-right insc">PREDICT'IF</p>
+              
+
+        <script>
+            
+            $(document).ready( function () {
+                $('#accueil-connexion-btn').on( 'click', function () { 
+                    window.location.href = 'index.html';
+                });
+                $('#bouton-inscription').on( 'click', function () { // Fonction appelÃ©e lors du clic sur le bouton
+
+                    console.log("clic sur le bouton d'inscription"); // LOG dans Console Javascript
+                    $('#notification').html("Inscription..."); // Message pour le paragraphe de notification
+
+                    // RÃ©cupÃ©ration de la valeur des champs du formulaire
+                    var champNom = $('#champ-nom').val();
+                    var champPrenom = $('#champ-prenom').val();
+                    var champAdresse = $('#champ-adresse').val();
+                    var champTelephone = $('#champ-telephone').val();
+                    var champDateNaissance = $('#champ-datedenaissance').val();
+                    var champMail = $('#champ-mail').val();
+                    var champMdp = $('#champ-mdp').val();
+
+                    // Appel AJAX
+                    $.ajax({
+                        url: './ActionServlet',
+                        method: 'POST',
+                        data: {
+                            todo: 'inscrit',
+                            nom: champNom,
+                            prenom: champPrenom,
+                            adresse: champAdresse,
+                            telephone: champTelephone,
+                            dateNaissance: champDateNaissance,
+                            login: champMail,
+                            password: champMdp
+                        },
+                        dataType: 'json'
+                    })
+                    .done( function (response) { // Fonction appelÃ©e en cas d'appel AJAX rÃ©ussi
+                        console.log('Response',response); // LOG dans Console Javascript
+                        if (response.inscrit) {
+                            
+                            alert("Succès de l’inscription. Vous allez recevoir un mail de confirmation."); // Message pour le paragraphe de notification
+                            // on revient à la page d'accueil pour que le client puisse s'inscrire
+                           
+                        }
+                        else {
+                            alert("Echec de l’inscription. Vous allez recevoir un mail.");
+                        }
+                    })
+                    .fail( function (error) { // Fonction appelÃ©e en cas d'erreur lors de l'appel AJAX
+                        console.log('Error',error); // LOG dans Console Javascript
+                        alert("Echec de l’inscription. Vous allez recevoir un mail.");
+                    })
+                    .always( function () { // Fonction toujours appelÃ©e
+                        // on repasse toujours à la page d'acceuil meme si l'inscription échoue
+                        window.location.href = 'index.html';
+                    });
+                });
+                
+            });
+        </script>
+    </body>
+</html>
