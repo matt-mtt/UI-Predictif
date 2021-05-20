@@ -7,7 +7,7 @@ package controleur;
  */
 
 import action.Action;
-import action.AuthentifierClientAction;
+import action.AuthentifierAction;
 import action.InscrireClientAction;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 import metier.modele.Client;
 import metier.service.Service;
 import vue.ClientSerialisation;
+import vue.EmployeSerialisation;
 import vue.Serialisation;
 
 /**
@@ -54,26 +55,33 @@ public class ActionServlet extends HttpServlet {
         System.out.println("****** to do = "+todo);
         
         Action action = null;
-        Serialisation serialisation = null;
+        Serialisation serialisationC = null;
+        Serialisation serialisationE = null;
         
         switch(todo) {
             case "connecter" : {
                 System.out.println("****** to do = "+todo);
-                action = new AuthentifierClientAction(s);
-                serialisation = new ClientSerialisation();       
+                action = new AuthentifierAction(s);
+                serialisationC = new ClientSerialisation();
+                serialisationE = new EmployeSerialisation();
+                
                 break;
             }
             case "inscrit" :{
                 System.out.println("****** to do = "+todo);
                 action = new InscrireClientAction(s);
-                serialisation = new ClientSerialisation();
+                serialisationC = new ClientSerialisation();
                 break;
             }       
         }
         
-        if(action !=null && serialisation !=null){
+        if(action !=null && (serialisationC !=null || serialisationE !=null)){
             action.execute(request);
-            serialisation.serialiser(request, response);
+            if(session.getAttribute("userType").equals("employe")){
+                serialisationE.serialiser(request, response);
+            }else{
+                serialisationC.serialiser(request, response);
+            }
             System.out.println("****** session id = "+session.getAttribute("user"));
         }
 
